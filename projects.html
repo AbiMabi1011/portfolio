@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <title>All Projects — Abishanan Pathmarajah</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" rel="stylesheet" />
+  <style>
+    :root { --primary:#6366f1; --primary-dark:#4f46e5; --secondary:#f59e0b; }
+    body{font-family:'Inter',sans-serif;background:#f8fafc;color:#1e293b;scroll-behavior:smooth;min-height:100vh;overflow-x:hidden}
+    .gradient-text{background:linear-gradient(90deg,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .card-hover{transition:all .4s cubic-bezier(.175,.885,.32,1.275)}
+    .card-hover:hover{transform:translateY(-8px) scale(1.03);box-shadow:0 25px 35px -5px rgba(99,102,241,.25),0 15px 15px -5px rgba(99,102,241,.15)}
+    .skill-pill{transition:all .3s ease;user-select:none}
+    .skill-pill:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 6px 10px -2px rgba(99,102,241,.3),0 4px 6px -2px rgba(99,102,241,.2);background:linear-gradient(90deg,var(--primary),var(--secondary));color:#fff}
+    /* Sticky toolbar mobile animation */
+    #filter-menu{transition:max-height .3s ease,opacity .3s ease;overflow:hidden}
+    #filter-menu.hidden{max-height:0;opacity:0;pointer-events:none}
+    #filter-menu:not(.hidden){max-height:600px;opacity:1}
+    /* Background orbs */
+    .bg-orb{position:fixed;border-radius:50%;filter:blur(120px);opacity:.15;z-index:-1;pointer-events:none;mix-blend-mode:screen;animation:pulseOrb 6s ease-in-out infinite}
+    .bg-orb-indigo{background:#6366f1;width:320px;height:320px;top:15vh;left:20vw}
+    .bg-orb-amber{background:#f59e0b;width:400px;height:400px;bottom:15vh;right:20vw;animation-delay:2s}
+    @keyframes pulseOrb{0%,100%{opacity:.15;transform:translateY(0)}50%{opacity:.25;transform:translateY(-20px)}}
+  </style>
+</head>
+
+<body class="antialiased bg-gradient-to-b from-indigo-50 via-white to-amber-50 min-h-screen relative">
+  <!-- Background orbs -->
+  <div aria-hidden="true">
+    <div class="bg-orb bg-orb-indigo"></div>
+    <div class="bg-orb bg-orb-amber"></div>
+  </div>
+
+  <!-- ===== TOP NAVBAR (non-sticky) ===== -->
+  <header class="bg-white/90 backdrop-blur-md shadow-sm border-b border-indigo-200">
+    <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-4">
+          <img src="abi.JPG" alt="Abishanan Pathmarajah"
+               class="rounded-full w-12 h-12 object-cover border-4 border-indigo-300 shadow-lg" />
+          <h1 class="text-2xl font-extrabold text-slate-900 tracking-tight select-none">
+            Abishanan <span class="text-indigo-600">Pathmarajah</span>
+          </h1>
+        </a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="index.html"
+           class="hidden sm:inline-flex items-center h-11 px-4 rounded-full border border-indigo-200 text-indigo-700 font-semibold hover:bg-indigo-50 transition">
+          <i class="fa-solid fa-house mr-2"></i> Home
+        </a>
+        <a href="/resume/Abishanan_Pathmarajah_Resume.pdf" download
+           class="inline-flex items-center h-11 px-5 rounded-full bg-gradient-to-r from-indigo-600 to-indigo-500
+                  text-white font-semibold shadow-lg hover:shadow-xl transition focus:outline-none focus:ring-4 focus:ring-indigo-400">
+          <i class="fas fa-download mr-2"></i> Download Résumé
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== SECOND NAVBAR (sticky, centered) ===== -->
+  <nav id="sticky-tools" class="sticky top-0 z-50 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 py-3">
+      <!-- Desktop toolbar -->
+      <div class="hidden md:flex flex-col items-center gap-3">
+        <!-- Category Filters -->
+        <div
+          class="inline-flex items-center gap-1 px-2 py-2 rounded-full bg-white/70 backdrop-blur-xl border border-white/50 ring-1 ring-indigo-200/60 shadow-[0_10px_30px_-12px_rgba(99,102,241,.45)]">
+          <button class="filter-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-filter="all"><i class="fa-solid fa-layer-group mr-2"></i>All</button>
+          <button class="filter-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-filter="web"><i class="fa-solid fa-globe mr-2"></i>Web</button>
+          <button class="filter-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-filter="mobile"><i class="fa-solid fa-mobile-screen mr-2"></i>Mobile</button>
+          <button class="filter-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-filter="desktop"><i class="fa-solid fa-desktop mr-2"></i>Desktop</button>
+          <button class="filter-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-filter="academic"><i class="fa-solid fa-user-graduate mr-2"></i>Academic</button>
+        </div>
+        <!-- Status Filters -->
+        <div
+          class="inline-flex items-center gap-1 px-2 py-2 rounded-full bg-white/70 backdrop-blur-xl border border-white/50 ring-1 ring-indigo-200/60 shadow">
+          <button class="status-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-status="any"><i class="fa-regular fa-circle-check mr-2"></i>Any Status</button>
+          <button class="status-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-status="ongoing"><i class="fa-solid fa-spinner mr-2"></i>Ongoing</button>
+          <button class="status-chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 hover:text-indigo-700 hover:bg-indigo-50/70"
+                  data-status="completed"><i class="fa-solid fa-flag-checkered mr-2"></i>Completed</button>
+        </div>
+        <!-- Meta -->
+        <p id="result-meta" class="text-center text-sm text-slate-500">Showing all projects</p>
+      </div>
+
+      <!-- Mobile toolbar -->
+      <div class="md:hidden flex justify-center">
+        <button id="filter-menu-btn"
+          class="inline-flex items-center gap-2 text-indigo-700 font-semibold bg-white/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/60 ring-1 ring-indigo-200/60 shadow hover:shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-400">
+          <i class="fas fa-sliders"></i> Filters
+        </button>
+      </div>
+
+      <!-- Mobile collapsible -->
+      <div id="filter-menu" class="hidden md:hidden mt-3 bg-white/95 backdrop-blur-md border border-indigo-200 shadow-lg rounded-2xl p-4 max-w-2xl mx-auto">
+        <div class="flex flex-wrap gap-2 justify-center mb-3">
+          <button class="filter-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-filter="all">All</button>
+          <button class="filter-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-filter="web">Web</button>
+          <button class="filter-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-filter="mobile">Mobile</button>
+          <button class="filter-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-filter="desktop">Desktop</button>
+          <button class="filter-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-filter="academic">Academic</button>
+        </div>
+        <div class="flex flex-wrap gap-2 justify-center">
+          <button class="status-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-status="any">Any Status</button>
+          <button class="status-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-status="ongoing">Ongoing</button>
+          <button class="status-chip chip h-10 px-4 rounded-full text-sm font-semibold text-slate-700 bg-slate-50" data-status="completed">Completed</button>
+        </div>
+        <p id="result-meta-m" class="text-center text-sm text-slate-500 mt-2">Showing all projects</p>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== CONTENT ===== -->
+  <main class="max-w-7xl mx-auto px-6 py-10">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
+        All <span class="gradient-text">Projects</span>
+      </h1>
+      <p class="text-slate-600 max-w-2xl mx-auto mt-3">
+        Explore my web, mobile, desktop, and academic work.
+      </p>
+    </header>
+
+    <!-- Projects Grid -->
+    <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Handicrafts Selling Web Page — Y1S2 -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-indigo-100"
+        data-category="web" data-status="completed"
+        data-tech="html css javascript php mysql admin payment"
+        data-title="Handicrafts Selling Web Page">
+        <div class="h-44 bg-gradient-to-r from-indigo-50 to-indigo-100 flex items-center justify-center">
+          <i class="fa-solid fa-store text-5xl text-indigo-500"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Handicrafts Selling Web Page (Y1S2 — Individual)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Built with HTML, CSS, JavaScript, PHP, and MySQL. Users can browse products, add to cart, and place orders.
+            Admin panel manages products, orders, and site updates; PHP handles interactions & payments.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">HTML</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">CSS</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">JavaScript</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">PHP</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">MySQL</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Hospital Management System — Y1S2 -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-emerald-100"
+        data-category="desktop" data-status="completed"
+        data-tech="java netbeans mysql alerts reports appointments"
+        data-title="Hospital Management System">
+        <div class="h-44 bg-gradient-to-r from-emerald-50 to-emerald-100 flex items-center justify-center">
+          <i class="fa-solid fa-hospital text-5xl text-emerald-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Hospital Management System (Y1S2 — Group)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Java (NetBeans) app managing patient records, doctor schedules, and medicine stock. Appointment booking,
+            reminders, monthly reports, and low-stock alerts.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Java</span>
+            <span class="skill-pill text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">NetBeans</span>
+            <span class="skill-pill text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">MySQL</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Students Record Management System — Y1S2 -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-amber-100"
+        data-category="web" data-status="completed"
+        data-tech="html bootstrap json jquery xml"
+        data-title="Students Record Management System">
+        <div class="h-44 bg-gradient-to-r from-amber-50 to-amber-100 flex items-center justify-center">
+          <i class="fa-solid fa-id-card text-5xl text-amber-500"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Students Record Management System (Y1S2 — Group)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Web system with HTML & Bootstrap UI. JSON and XML for data storage; jQuery powers dynamic interactions.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">HTML</span>
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Bootstrap</span>
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">JSON</span>
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">jQuery</span>
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">XML</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Mobile application — Y2S1 -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-indigo-100"
+        data-category="mobile" data-status="completed"
+        data-tech="android java firebase rest api ai"
+        data-title="Mobile Application (Y2S1)">
+        <div class="h-44 bg-gradient-to-r from-indigo-50 to-indigo-100 flex items-center justify-center">
+          <i class="fa-solid fa-mobile-screen text-5xl text-indigo-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Mobile Application (Y2S1 — Group)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Android app using Java, Firebase, and REST API. AI-powered features with real-time sync and seamless user interaction.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Java</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Firebase</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">REST API</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Low & High Fidelity — Y2S1 -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-slate-200"
+        data-category="academic" data-status="completed"
+        data-tech="ux ui prototype figma paper"
+        data-title="Low Fidelity & High Fidelity">
+        <div class="h-44 bg-gradient-to-r from-slate-50 to-slate-100 flex items-center justify-center">
+          <i class="fa-solid fa-pen-ruler text-5xl text-slate-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Low & High Fidelity (Y2S1 — Group)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Low-fidelity paper prototypes for user flows; high-fidelity interactive designs in Figma for usability testing.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">Figma</span>
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">Prototyping</span>
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">UX</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Wanlanka — Y2S2 (Ongoing) -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-indigo-100"
+        data-category="web" data-status="ongoing"
+        data-tech="laravel mysql bootstrap travel booking vehicles food accommodation guides"
+        data-title="Wanlanka – Tourist Service Application">
+        <div class="h-44 bg-gradient-to-r from-indigo-50 to-indigo-100 flex items-center justify-center">
+          <i class="fa-solid fa-suitcase-rolling text-5xl text-indigo-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Wanlanka – Tourist Service (Y2S2 — Group)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-600 text-white">Ongoing</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Laravel-based web app offering tourist packages in Sri Lanka (vehicles, food, accommodation, guides).
+            Includes external vehicle hire & independent accommodation booking.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Laravel</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">MySQL</span>
+            <span class="skill-pill text-xs font-semibold bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full">Bootstrap</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Business Case Study — Y2S2 (Ongoing) -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-amber-100"
+        data-category="academic" data-status="ongoing"
+        data-tech="business model canvas case study analysis strategy"
+        data-title="Business Case Study & Model Analysis">
+        <div class="h-44 bg-gradient-to-r from-amber-50 to-amber-100 flex items-center justify-center">
+          <i class="fa-solid fa-chart-line text-5xl text-amber-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Business Case Study & Business Model (Y2S2 — Group)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-indigo-600 text-white">Ongoing</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            In-depth company analysis: environment & operations. Business model with value proposition, customers,
+            revenue, strategy, plus key recommendations.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Case Study</span>
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Business Model</span>
+            <span class="skill-pill text-xs font-semibold bg-amber-100 text-amber-800 px-3 py-1 rounded-full">Strategy</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- PetCare — Internship -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-emerald-100"
+        data-category="mobile" data-status="completed"
+        data-tech="laravel flutter firebase health appointments"
+        data-title="PetCare Application (Internship)">
+        <div class="h-44 bg-gradient-to-r from-emerald-50 to-emerald-100 flex items-center justify-center">
+          <i class="fa-solid fa-paw text-5xl text-emerald-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">PetCare Application (Internship Project)</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Full-stack pet care platform — Laravel backend + Flutter mobile app. Manage pet health, appointments,
+            and care services.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Laravel</span>
+            <span class="skill-pill text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Flutter</span>
+            <span class="skill-pill text-xs font-semibold bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full">Firebase</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- Shiproof — WMS -->
+      <article class="project-card bg-white rounded-3xl shadow-xl overflow-hidden card-hover border border-slate-200"
+        data-category="web" data-status="completed"
+        data-tech="php sql html css javascript warehouse stock"
+        data-title="Shiproof – Warehouse Management System">
+        <div class="h-44 bg-gradient-to-r from-slate-50 to-slate-100 flex items-center justify-center">
+          <i class="fa-solid fa-warehouse text-5xl text-slate-600"></i>
+        </div>
+        <div class="p-6">
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-xl font-bold text-slate-900">Shiproof – Warehouse Management System</h3>
+            <span class="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-600 text-white">Completed</span>
+          </div>
+          <p class="text-slate-700 mb-4">
+            Web system for store owners to manage stock & services; staff handle stock receipt and dispatch.
+            Built with PHP, SQL, HTML, CSS, and JavaScript for efficient tracking.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">PHP</span>
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">SQL</span>
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">HTML/CSS</span>
+            <span class="skill-pill text-xs font-semibold bg-slate-100 text-slate-800 px-3 py-1 rounded-full">JavaScript</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- No results -->
+    <p id="no-results" class="hidden text-center text-slate-500 mt-10">No projects match your filters.</p>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 mt-16">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <img src="abi.JPG" alt="Abishanan" class="rounded-full w-12 h-12 object-cover border-4 border-indigo-600 shadow-lg" />
+        <div>
+          <h2 class="text-white font-extrabold">Abishanan Pathmarajah</h2>
+          <p class="text-indigo-400 text-sm">Software Engineer | Full-Stack Developer</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-5 text-2xl">
+        <a href="https://linkedin.com/in/abishananpathmarajah" target="_blank" class="hover:text-indigo-400"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/abimabi1011" target="_blank" class="hover:text-indigo-400"><i class="fab fa-github"></i></a>
+        <a href="mailto:abishanan123@gmail.com" class="hover:text-indigo-400"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile filter menu toggle
+    (function () {
+      const btn = document.getElementById('filter-menu-btn');
+      const menu = document.getElementById('filter-menu');
+      if (btn && menu) btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    })();
+
+    // Active styling helper
+    function setActive(groupSelector, activeEl) {
+      document.querySelectorAll(groupSelector).forEach(el => {
+        el.classList.remove('bg-gradient-to-r','from-indigo-600','to-indigo-500','text-white','ring-2','ring-indigo-300/60','shadow');
+        el.classList.add('text-slate-700');
+      });
+      activeEl.classList.add('bg-gradient-to-r','from-indigo-600','to-indigo-500','text-white','ring-2','ring-indigo-300/60','shadow');
+      activeEl.classList.remove('text-slate-700');
+    }
+
+    // Filtering logic (category + status only)
+    const grid = document.getElementById('projects-grid');
+    const cards = Array.from(grid.querySelectorAll('.project-card'));
+    let currentCategory = 'all';
+    let currentStatus = 'any';
+
+    function applyFilters() {
+      let visible = 0;
+      cards.forEach(card => {
+        const cat = card.dataset.category;
+        const status = card.dataset.status;
+        const matchCategory = currentCategory === 'all' || currentCategory === cat;
+        const matchStatus = currentStatus === 'any' || currentStatus === status;
+        const show = matchCategory && matchStatus;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+
+      const meta = document.getElementById('result-meta');
+      const metaM = document.getElementById('result-meta-m');
+      const noRes = document.getElementById('no-results');
+      const labelCat = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
+      const labelStat = currentStatus === 'any' ? 'Any' : (currentStatus.charAt(0).toUpperCase() + currentStatus.slice(1));
+      const msg = `Showing ${visible} project${visible!==1?'s':''} • ${labelCat} • ${labelStat}`;
+      if (meta) meta.textContent = msg;
+      if (metaM) metaM.textContent = msg;
+      noRes.classList.toggle('hidden', visible !== 0);
+    }
+
+    // Hook up chips
+    document.querySelectorAll('.filter-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentCategory = btn.dataset.filter;
+        setActive('.filter-chip', btn);
+        applyFilters();
+      });
+    });
+    document.querySelectorAll('.status-chip').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentStatus = btn.dataset.status;
+        setActive('.status-chip', btn);
+        applyFilters();
+      });
+    });
+
+    // Initialize defaults
+    window.addEventListener('load', () => {
+      const firstFilter = document.querySelector('.filter-chip[data-filter="all"]');
+      const firstStatus = document.querySelector('.status-chip[data-status="any"]');
+      if (firstFilter) setActive('.filter-chip', firstFilter);
+      if (firstStatus) setActive('.status-chip', firstStatus);
+      applyFilters();
+    });
+  </script>
+</body>
+</html>
