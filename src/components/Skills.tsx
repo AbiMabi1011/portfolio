@@ -42,7 +42,7 @@ export function Skills({ accent }: SkillsProps) {
                 isEmerald ? 'text-emerald-700' : 'text-blue-700'
               }`}
             >
-              [ 04 / TECHNICAL MATRIX ]
+              [ 05 / TECHNICAL MATRIX ]
             </span>
             <h2 className="mt-2 font-condensed text-5xl tracking-wide text-zinc-950 uppercase sm:text-6xl">
               Skills &amp; Stack

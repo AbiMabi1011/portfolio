@@ -63,7 +63,7 @@ export function Navbar({
             href="#"
             className="flex items-center gap-2 font-condensed text-2xl tracking-wider text-white"
           >
-            <span>ABP</span>
+            <span>ABI</span>
             <span
               className={`font-mono text-[10px] font-semibold tracking-widest ${
                 isEmerald ? 'text-emerald-400' : 'text-blue-400'

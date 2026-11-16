@@ -78,7 +78,7 @@ export function Contact({ accent }: ContactProps) {
               isEmerald ? 'text-emerald-700' : 'text-blue-700'
             }`}
           >
-            [ 06 / CONTACT ]
+            [ 07 / CONTACT ]
           </span>
           <h2 className="mt-2 font-condensed text-5xl tracking-wide text-zinc-950 uppercase sm:text-6xl">
             Get in Touch

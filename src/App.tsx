@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Experience } from './components/Experience';
 import { Projects } from './components/Projects';
 import { Research } from './components/Research';
+import { EngineeringPlaybook } from './components/EngineeringPlaybook';
 import { Skills } from './components/Skills';
 import { Credentials } from './components/Credentials';
 import { Contact } from './components/Contact';
@@ -57,6 +58,7 @@ export function App() {
             onSelectProject={setSelectedProject}
           />
           <Research accent={accent} />
+          <EngineeringPlaybook accent={accent} />
           <Skills accent={accent} />
           <Credentials accent={accent} />
           <Contact accent={accent} />

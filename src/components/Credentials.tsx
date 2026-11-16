@@ -29,7 +29,7 @@ export function Credentials({ accent }: CredentialsProps) {
               isEmerald ? 'text-emerald-700' : 'text-blue-700'
             }`}
           >
-            [ 05 / BACKGROUND ]
+            [ 06 / BACKGROUND ]
           </span>
           <h2 className="mt-2 font-condensed text-5xl tracking-wide text-zinc-950 uppercase sm:text-6xl">
             Education &amp; Credentials
