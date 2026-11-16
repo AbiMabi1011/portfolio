@@ -54,6 +54,67 @@
   }
 }
 
+@keyframes riverFlow {
+  0% {
+    stroke-dashoffset: 160;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes satelliteScan {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translateY(0px);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translateY(3px);
+  }
+}
+
+.animate-river-flow {
+  stroke-dasharray: 12 10;
+  animation: riverFlow 6s linear infinite;
+}
+
+.animate-river-flow-slow {
+  stroke-dasharray: 16 14;
+  animation: riverFlow 9s linear infinite;
+}
+
+.animate-satellite-scan {
+  animation: satelliteScan 3s ease-in-out infinite;
+}
+
+@keyframes rainDrop {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.85;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-22px, 145px);
+    opacity: 0;
+  }
+}
+
+.animate-rain-1 {
+  animation: rainDrop 2.4s linear infinite;
+}
+.animate-rain-2 {
+  animation: rainDrop 2.9s linear 0.9s infinite;
+}
+.animate-rain-3 {
+  animation: rainDrop 2.6s linear 1.7s infinite;
+}
+
 .text-outline-blue {
   color: transparent;
   -webkit-text-stroke: 1.75px #2563eb;
