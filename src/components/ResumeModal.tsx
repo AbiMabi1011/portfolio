@@ -20,11 +20,11 @@ export function ResumeModal({ open, onClose, accent }: ResumeModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/50 p-4 backdrop-blur-xs"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-950/50 p-4 backdrop-blur-xs print:static print:block print:bg-white print:p-0"
       onClick={onClose}
     >
       <div
-        className="max-h-[90vh] w-full max-w-3xl overflow-y-auto border border-zinc-200 bg-white shadow-2xl"
+        className="max-h-[90vh] w-full max-w-3xl overflow-y-auto border border-zinc-200 bg-white shadow-2xl print:max-h-none print:max-w-none print:overflow-visible print:border-0 print:shadow-none"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Top Action Bar */}
@@ -57,7 +57,7 @@ export function ResumeModal({ open, onClose, accent }: ResumeModalProps) {
         </div>
 
         {/* Printable ATS-Friendly Sheet */}
-        <div className="space-y-6 p-8 text-zinc-900 sm:p-10">
+        <div className="space-y-5 p-8 text-zinc-900 sm:p-10 print:space-y-4 print:p-0">
           <header className="border-b border-zinc-300 pb-4">
             <h1 className="font-display text-2xl font-extrabold tracking-tight text-zinc-950">
               {PROFILE.name}

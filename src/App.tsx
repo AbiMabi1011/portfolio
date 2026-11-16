@@ -36,30 +36,32 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-white text-zinc-950">
-      <Navbar
-        accent={accent}
-        onToggleAccent={toggleAccent}
-        onOpenCommand={() => setCommandOpen(true)}
-        onOpenTerminal={() => setTerminalOpen(true)}
-      />
-      <main>
-        <Hero
+      <div className={resumeOpen ? 'print:hidden' : ''}>
+        <Navbar
           accent={accent}
+          onToggleAccent={toggleAccent}
+          onOpenCommand={() => setCommandOpen(true)}
           onOpenTerminal={() => setTerminalOpen(true)}
-          onOpenResume={() => setResumeOpen(true)}
         />
-        <TechMarquee />
-        <Experience accent={accent} />
-        <Projects
-          accent={accent}
-          selectedProject={selectedProject}
-          onSelectProject={setSelectedProject}
-        />
-        <Skills accent={accent} />
-        <Credentials accent={accent} />
-        <Contact accent={accent} />
-      </main>
-      <Footer />
+        <main>
+          <Hero
+            accent={accent}
+            onOpenTerminal={() => setTerminalOpen(true)}
+            onOpenResume={() => setResumeOpen(true)}
+          />
+          <TechMarquee />
+          <Experience accent={accent} />
+          <Projects
+            accent={accent}
+            selectedProject={selectedProject}
+            onSelectProject={setSelectedProject}
+          />
+          <Skills accent={accent} />
+          <Credentials accent={accent} />
+          <Contact accent={accent} />
+        </main>
+        <Footer />
+      </div>
       <CommandPalette
         open={commandOpen}
         onClose={() => setCommandOpen(false)}
