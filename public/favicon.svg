@@ -1,17 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <rect width="64" height="64" rx="14" fill="#09090B" />
-  <rect x="2" y="2" width="60" height="60" rx="12" stroke="#2563EB" stroke-width="2" stroke-opacity="0.4" />
-  <text
-    x="50%"
-    y="54%"
-    dominant-baseline="middle"
-    text-anchor="middle"
+  <defs>
+    <linearGradient id="ap-grad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="55%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#0D9488" />
+    </linearGradient>
+    <linearGradient id="ap-shine" x1="0" y1="0" x2="0" y2="64" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#ap-grad)" />
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" stroke="url(#ap-shine)" stroke-width="1.5" />
+  <path
+    d="M17.5 44L25.8 20H30.2L38.5 44H34.1L32.3 38.4H23.7L21.9 44H17.5ZM24.9 34.8H31.1L28 25.1L24.9 34.8Z"
     fill="#FFFFFF"
-    font-family="ui-monospace, SFMono-Regular, Menlo, monospace"
-    font-size="24"
-    font-weight="700"
-    letter-spacing="-1"
-  >
-    AP
-  </text>
+  />
+  <circle cx="44.5" cy="40.5" r="3.5" fill="#5EEAD4" />
 </svg>
