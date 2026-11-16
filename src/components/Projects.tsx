@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { ArrowUpRight, X, CheckCircle2, ArrowRight } from 'lucide-react';
 import { PROJECTS, type ProjectItem } from '../data/portfolioData';
 import { useInView } from '../hooks/useInView';
-import { TiltCard } from './TiltCard';
 
 const CATEGORIES = ['All', 'EdTech', 'E-Commerce & Booking', 'Full-Stack'] as const;
 
@@ -50,23 +49,23 @@ export function Projects({
   const selectedArch = selectedProject ? ARCHITECTURES[selectedProject.id] : null;
 
   return (
-    <section id="projects" className="border-b border-zinc-200 bg-white py-20 sm:py-24">
+    <section id="projects" className="border-b border-zinc-300 bg-[#F7F8FA] py-20 sm:py-24">
       <div
         ref={ref}
-        className={`mx-auto max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
+        className={`mx-auto max-w-[1400px] px-6 transition-all duration-700 sm:px-10 lg:px-14 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}
       >
-        <div className="flex flex-col justify-between gap-6 border-b border-zinc-200 pb-6 md:flex-row md:items-end">
+        <div className="flex flex-col justify-between gap-6 border-b border-zinc-300 pb-6 md:flex-row md:items-end">
           <div>
             <span
-              className={`font-mono text-xs font-semibold uppercase tracking-widest ${
+              className={`font-mono text-xs font-semibold uppercase tracking-[0.2em] ${
                 isEmerald ? 'text-emerald-700' : 'text-blue-700'
               }`}
             >
-              02 / Selected Work
+              [ 02 / SELECTED WORK ]
             </span>
-            <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+            <h2 className="mt-2 font-condensed text-5xl tracking-wide text-zinc-950 uppercase sm:text-6xl">
               Featured Projects
             </h2>
           </div>
@@ -77,12 +76,12 @@ export function Projects({
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`rounded-md px-3 py-1.5 font-mono text-xs font-medium transition-colors ${
+                className={`px-3.5 py-2 font-mono text-[11px] font-semibold uppercase tracking-wider transition-colors ${
                   activeCategory === category
                     ? isEmerald
                       ? 'bg-emerald-600 text-white'
                       : 'bg-blue-600 text-white'
-                    : 'border border-zinc-200 bg-zinc-50 text-zinc-600 hover:border-zinc-300 hover:text-zinc-950'
+                    : 'border border-zinc-300 bg-white text-zinc-600 hover:border-zinc-950 hover:text-zinc-950'
                 }`}
               >
                 {category}
@@ -91,89 +90,88 @@ export function Projects({
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        <div className="mt-10 grid border border-zinc-300 bg-white md:grid-cols-3 md:divide-x md:divide-zinc-300">
           {filtered.map((project, index) => (
-            <TiltCard
+            <article
               key={project.id}
-              accent={accent}
-              className="group flex flex-col justify-between border border-zinc-200 bg-zinc-50/40 p-6 transition-colors hover:border-zinc-400 hover:bg-white"
+              className="group relative flex flex-col justify-between overflow-hidden border-b border-zinc-300 p-7 transition-colors hover:bg-zinc-50/80 md:border-b-0"
             >
-              <div className="flex h-full flex-col justify-between">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-zinc-400">
-                    <span>0{index + 1}</span>
-                    <span className="uppercase tracking-wider text-zinc-500">
-                      {project.category}
-                    </span>
-                  </div>
+              <span className="pointer-events-none absolute right-3 bottom-1 font-condensed text-8xl leading-none text-zinc-100 select-none">
+                0{index + 1}
+              </span>
 
-                  <h3
-                    className={`mt-5 font-display text-xl font-bold text-zinc-950 transition-colors ${
-                      isEmerald ? 'group-hover:text-emerald-700' : 'group-hover:text-blue-700'
-                    }`}
-                  >
-                    {project.title}
-                  </h3>
-                  <p className="mt-1 font-mono text-xs text-zinc-500">
-                    {project.tagline}
-                  </p>
-
-                  <p className="mt-4 text-sm leading-relaxed text-zinc-600">
-                    {project.summary}
-                  </p>
-
-                  {project.impactMetric && (
-                    <div
-                      className={`mt-4 inline-block border px-2.5 py-1 font-mono text-[11px] font-semibold ${
-                        isEmerald
-                          ? 'border-emerald-200 bg-emerald-50/70 text-emerald-800'
-                          : 'border-blue-200 bg-blue-50/70 text-blue-800'
-                      }`}
-                    >
-                      {project.impactMetric}
-                    </div>
-                  )}
-
-                  <div className="mt-5 flex flex-wrap gap-1.5">
-                    {project.stack.map((tech) => (
-                      <span
-                        key={tech}
-                        className="border border-zinc-200 bg-white px-2 py-0.5 font-mono text-[11px] text-zinc-700"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+              <div className="relative z-10">
+                <div className="flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-zinc-400">
+                  <span>0{index + 1}</span>
+                  <span className="text-zinc-500">{project.category}</span>
                 </div>
 
-                <div className="mt-8 flex items-center justify-between border-t border-zinc-200 pt-4">
-                  <button
-                    type="button"
-                    onClick={() => onSelectProject(project)}
-                    className={`inline-flex items-center gap-1 font-mono text-xs font-semibold ${
+                <h3
+                  className={`mt-5 font-condensed text-3xl tracking-wide text-zinc-950 uppercase transition-colors ${
+                    isEmerald ? 'group-hover:text-emerald-700' : 'group-hover:text-blue-700'
+                  }`}
+                >
+                  {project.title}
+                </h3>
+                <p className="mt-1 font-mono text-[11px] text-zinc-500">
+                  {project.tagline}
+                </p>
+
+                <p className="mt-4 text-sm leading-relaxed text-zinc-600">
+                  {project.summary}
+                </p>
+
+                {project.impactMetric && (
+                  <div
+                    className={`mt-4 inline-block border px-2.5 py-1 font-mono text-[11px] font-semibold ${
                       isEmerald
-                        ? 'text-emerald-700 hover:text-emerald-900'
-                        : 'text-blue-700 hover:text-blue-900'
+                        ? 'border-emerald-200 bg-emerald-50 text-emerald-800'
+                        : 'border-blue-200 bg-blue-50 text-blue-800'
                     }`}
                   >
-                    Architecture &amp; Details
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </button>
+                    {project.impactMetric}
+                  </div>
+                )}
 
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="inline-flex items-center gap-1 font-mono text-xs text-zinc-600 hover:text-zinc-950"
+                <div className="mt-5 flex flex-wrap gap-1.5">
+                  {project.stack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="border border-zinc-200 bg-zinc-50 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-zinc-700"
                     >
-                      {project.liveLabel}
-                      <ArrowUpRight className="h-3.5 w-3.5" />
-                    </a>
-                  )}
+                      {tech}
+                    </span>
+                  ))}
                 </div>
               </div>
-            </TiltCard>
+
+              <div className="relative z-10 mt-8 flex items-center justify-between border-t border-zinc-200 pt-4">
+                <button
+                  type="button"
+                  onClick={() => onSelectProject(project)}
+                  className={`inline-flex items-center gap-1 font-mono text-xs font-semibold uppercase tracking-wider ${
+                    isEmerald
+                      ? 'text-emerald-700 hover:text-emerald-900'
+                      : 'text-blue-700 hover:text-blue-900'
+                  }`}
+                >
+                  Architecture
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </button>
+
+                {project.liveUrl && (
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1 font-mono text-xs text-zinc-600 hover:text-zinc-950"
+                  >
+                    {project.liveLabel}
+                    <ArrowUpRight className="h-3.5 w-3.5" />
+                  </a>
+                )}
+              </div>
+            </article>
           ))}
         </div>
       </div>
@@ -196,7 +194,7 @@ export function Projects({
                 >
                   {selectedProject.category}
                 </span>
-                <h3 className="mt-1 font-display text-2xl font-bold text-zinc-950">
+                <h3 className="mt-1 font-condensed text-3xl tracking-wide text-zinc-950 uppercase">
                   {selectedProject.title}
                 </h3>
                 <p className="mt-1 font-mono text-xs text-zinc-500">
@@ -206,7 +204,7 @@ export function Projects({
               <button
                 type="button"
                 onClick={() => onSelectProject(null)}
-                className="rounded-md p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-900"
+                className="p-1.5 text-zinc-400 hover:bg-zinc-100 hover:text-zinc-900"
                 aria-label="Close modal"
               >
                 <X className="h-5 w-5" />
@@ -217,7 +215,6 @@ export function Projects({
               {selectedProject.summary}
             </p>
 
-            {/* 3-Tier System Architecture Flow */}
             {selectedArch && (
               <div className="mt-6">
                 <h4 className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-500">
@@ -288,7 +285,7 @@ export function Projects({
                   href={selectedProject.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className={`inline-flex items-center gap-2 rounded-md px-4 py-2 font-mono text-xs font-semibold text-white ${
+                  className={`inline-flex items-center gap-2 px-4 py-2 font-mono text-xs font-semibold uppercase tracking-wider text-white ${
                     isEmerald
                       ? 'bg-emerald-600 hover:bg-emerald-700'
                       : 'bg-blue-600 hover:bg-blue-700'

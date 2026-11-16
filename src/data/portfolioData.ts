@@ -156,6 +156,36 @@ export const PROJECTS: ProjectItem[] = [
   },
 ];
 
+export const RESEARCH = {
+  eyebrow: 'B.Sc. (Hons) Undergraduate Research',
+  title:
+    'Assessing the Sensitivity of Machine-Learning-Based High-Flow Forecasts to Satellite Rainfall Errors in the Kalu Ganga Basin, Sri Lanka',
+  supervisor: 'Vithiyasahar Vigneswaran',
+  summary:
+    'A controlled machine-learning study evaluating how satellite precipitation errors—such as peak underestimation and timing shifts—impact river water-level forecasting and high-flow flood detection in Sri Lanka’s Kalu Ganga Basin.',
+  methodology: [
+    {
+      step: '01',
+      title: 'Satellite vs. Gauge Analysis',
+      detail:
+        'Benchmark CHIRPS, NASA GPM IMERG, and JAXA GSMaP rainfall datasets against ground rain-gauge observations.',
+    },
+    {
+      step: '02',
+      title: 'ML River-Level Modeling',
+      detail:
+        'Build baseline and Python machine-learning forecasting models using historical rainfall and river-level records.',
+    },
+    {
+      step: '03',
+      title: 'High-Flow Sensitivity',
+      detail:
+        'Measure forecast skill, missed flood events, and false-alarm rates under controlled rainfall magnitude and timing errors.',
+    },
+  ],
+  stack: ['Python', 'Pandas', 'NumPy', 'Machine Learning', 'QGIS', 'CHIRPS', 'NASA GPM IMERG', 'JAXA GSMaP'],
+};
+
 export const SKILL_GROUPS: SkillGroup[] = [
   {
     category: 'Languages',

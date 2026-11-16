@@ -3,6 +3,7 @@
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: "Bebas Neue", "Plus Jakarta Sans", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
@@ -51,6 +52,16 @@
   100% {
     transform: translateX(-50%);
   }
+}
+
+.text-outline-blue {
+  color: transparent;
+  -webkit-text-stroke: 1.75px #2563eb;
+}
+
+.text-outline-emerald {
+  color: transparent;
+  -webkit-text-stroke: 1.75px #059669;
 }
 
 @media print {

@@ -70,17 +70,17 @@ export function Contact({ accent }: ContactProps) {
   };
 
   return (
-    <section id="contact" className="bg-zinc-50/60 py-20 sm:py-24">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="border-b border-zinc-200 pb-6">
+    <section id="contact" className="bg-white py-20 sm:py-24">
+      <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-14">
+        <div className="border-b border-zinc-300 pb-6">
           <span
-            className={`font-mono text-xs font-semibold uppercase tracking-widest ${
+            className={`font-mono text-xs font-semibold uppercase tracking-[0.2em] ${
               isEmerald ? 'text-emerald-700' : 'text-blue-700'
             }`}
           >
-            05 / Contact
+            [ 06 / CONTACT ]
           </span>
-          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
+          <h2 className="mt-2 font-condensed text-5xl tracking-wide text-zinc-950 uppercase sm:text-6xl">
             Get in Touch
           </h2>
         </div>

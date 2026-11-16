@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { TechMarquee } from './components/TechMarquee';
 import { Experience } from './components/Experience';
 import { Projects } from './components/Projects';
+import { Research } from './components/Research';
 import { Skills } from './components/Skills';
 import { Credentials } from './components/Credentials';
 import { Contact } from './components/Contact';
@@ -11,6 +11,7 @@ import { Footer } from './components/Footer';
 import { CommandPalette } from './components/CommandPalette';
 import { DevTerminal } from './components/DevTerminal';
 import { ResumeModal } from './components/ResumeModal';
+import { FloatingConnect } from './components/FloatingConnect';
 import type { ProjectItem } from './data/portfolioData';
 
 export function App() {
@@ -49,13 +50,13 @@ export function App() {
             onOpenTerminal={() => setTerminalOpen(true)}
             onOpenResume={() => setResumeOpen(true)}
           />
-          <TechMarquee />
           <Experience accent={accent} />
           <Projects
             accent={accent}
             selectedProject={selectedProject}
             onSelectProject={setSelectedProject}
           />
+          <Research accent={accent} />
           <Skills accent={accent} />
           <Credentials accent={accent} />
           <Contact accent={accent} />
@@ -82,6 +83,10 @@ export function App() {
         open={resumeOpen}
         onClose={() => setResumeOpen(false)}
         accent={accent}
+      />
+      <FloatingConnect
+        accent={accent}
+        onOpenResume={() => setResumeOpen(true)}
       />
     </div>
   );

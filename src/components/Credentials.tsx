@@ -16,23 +16,23 @@ export function Credentials({ accent }: CredentialsProps) {
   const isEmerald = accent === 'emerald';
 
   return (
-    <section id="credentials" className="border-b border-zinc-200 bg-white py-20 sm:py-24">
+    <section id="credentials" className="border-b border-zinc-300 bg-[#F7F8FA] py-20 sm:py-24">
       <div
         ref={ref}
-        className={`mx-auto max-w-6xl px-4 transition-all duration-700 sm:px-6 lg:px-8 ${
+        className={`mx-auto max-w-[1400px] px-6 transition-all duration-700 sm:px-10 lg:px-14 ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
         }`}
       >
-        <div className="border-b border-zinc-200 pb-6">
+        <div className="border-b border-zinc-300 pb-6">
           <span
-            className={`font-mono text-xs font-semibold uppercase tracking-widest ${
+            className={`font-mono text-xs font-semibold uppercase tracking-[0.2em] ${
               isEmerald ? 'text-emerald-700' : 'text-blue-700'
             }`}
           >
-            04 / Background
+            [ 05 / BACKGROUND ]
           </span>
-          <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-zinc-950 sm:text-4xl">
-            Education, Certifications &amp; References
+          <h2 className="mt-2 font-condensed text-5xl tracking-wide text-zinc-950 uppercase sm:text-6xl">
+            Education &amp; Credentials
           </h2>
         </div>
 
